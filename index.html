@@ -1,47 +1,133 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Charity : Water</title>
+  <style>
+    :root{
+      --navy:#0b3654;
+      --beige:#f4ead7;
+      --cream:#fcf8f0;
+      --yellow:#ffcc2f;
+      --white:#ffffff;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--beige);color:var(--navy)}
+
+    /* Header */
+    .site-header{
+      background:var(--navy);
+      color:var(--white);
+      padding:14px 18px;
+    }
+    .header-inner{
+      max-width:1100px;margin:0 auto;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      background:var(--white);padding:8px 14px;border-radius:4px;
+      color:var(--navy);font-weight:700;
+    }
+    .jerrycan{
+      width:18px;height:22px;background:var(--yellow);
+      position:relative;border-radius:2px;
+    }
+    .jerrycan::before{
+      content:"";position:absolute;top:-5px;left:3px;
+      width:12px;height:6px;background:var(--yellow);
+      border-radius:2px;
+    }
+    .donate{
+      background:var(--beige);color:var(--navy);
+      padding:8px 14px;border-radius:6px;font-weight:700;
+      text-decoration:none;
+    }
+
+    /* Hero section */
+    .hero{background:var(--cream);border-top:8px solid var(--navy);border-bottom:8px solid var(--navy)}
+    .hero-inner{
+      max-width:1100px;margin:0 auto;
+      display:grid;grid-template-columns:1.1fr 1fr;gap:32px;
+      padding:40px 18px;
+    }
+    .headline{font-size:clamp(28px,4.2vw,48px);font-weight:800;color:var(--navy);margin:0 0 12px}
+    .subhead{font-size:18px;line-height:1.5;color:var(--navy);margin:0}
+    .spacer-lg{height:26px}
+    .cta-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+    .cta-pill{background:var(--navy);color:var(--beige);padding:14px 18px;border-radius:10px;font-weight:700}
+    .btn-subscribe{background:var(--beige);color:var(--navy);padding:12px 18px;border:2px solid var(--navy);border-radius:10px;font-weight:800;text-decoration:none}
+
+    /* Collage */
+    .collage{
+      position:relative;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+    }
+    .tile{
+      overflow:hidden;border-radius:10px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1);
+      transform:rotate(-2deg);
+    }
+    .tile:nth-child(2){transform:rotate(2deg)}
+    .tile:nth-child(3){transform:rotate(-1deg)}
+    .tile:nth-child(4){transform:rotate(1deg)}
+    .tile img{
+      width:100%;height:100%;
+      object-fit:cover;
+      aspect-ratio:4/3;
+    }
+    /* Adjust lower-right image to show boy's face */
+    .tile:nth-child(4) img{
+      object-position:center 30%;
+    }
+    .collage .hope-text{
+      position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+      font-size:42px;font-weight:bold;color:var(--navy);
+      font-family:"Brush Script MT",cursive;
+      background:rgba(255,255,255,0.7);
+      padding:6px 14px;border-radius:8px;
+    }
+
+    @media(max-width:860px){
+      .hero-inner{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="jerrycan"></span>
+        <span>Charity : Water</span>
+      </div>
+      <a class="donate" href="#">Donate Here</a>
+    </div>
+  </header>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
-
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1 class="headline">Change a Life with Clean Water.</h1>
+        <p class="subhead">Join a global community where every contribution, big or small, goes directly to water projects, and with tracking of each project, you'll be able to see exactly how your gift has changed lives.</p>
+        <div class="spacer-lg"></div>
+        <div class="cta-row">
+          <div class="cta-pill">Stay Connected, Make a Difference</div>
+          <a class="btn-subscribe" href="#subscribe">Subscribe</a>
         </div>
-    </section>
+      </div>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+      <!-- Collage -->
+      <div class="collage">
+        <div class="tile"><img src="https://images.pexels.com/photos/27599728/pexels-photo-27599728.jpeg" alt="child"/></div>
+        <div class="tile"><img src="https://images.pexels.com/photos/1232750/pexels-photo-1232750.jpeg" alt="faucet"/></div>
+        <div class="tile"><img src="https://images.pexels.com/photos/27444340/pexels-photo-27444340.jpeg" alt="community"/></div>
+        <div class="tile"><img src="https://images.pexels.com/photos/30355356/pexels-photo-30355356.jpeg" alt="woman with wheelbarrow"/></div>
+        <div class="hope-text">Hope</div>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
